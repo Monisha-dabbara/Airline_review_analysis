@@ -32,7 +32,7 @@ def load_general_model():
 # Load ABSA model & tokenizer
 @st.cache_resource
 def load_absa_model():
-    tokenizer = AutoTokenizer.from_pretrained("yangheng/deberta-v3-base-absa-v1.1")
+    tokenizer = AutoTokenizer.from_pretrained("yangheng/deberta-v3-base-absa-v1.1", use_fast=False, trust_remote_code=False)
     model = AutoModelForSequenceClassification.from_pretrained("yangheng/deberta-v3-base-absa-v1.1")
     return tokenizer, model
 
